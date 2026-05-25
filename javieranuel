@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier Anuel // Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+           // PORTAFOLIO DE JAVIER ANUEL
+           // Paleta: Cyber-Cyberpunk Sofisticado (Semi-Dark)
+           // Fondo: #181824 | Acento: #FF007F | Soporte: #8A2BE2
+           // ============================================================ */
+
+        /* === RESET Y CONFIGURACIÓN BASE === */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #181824;
+            --bg-card: #1c1c2b;
+            --bg-card-hover: #222236;
+            --border-subtle: #2a2a3a;
+            --accent-fuchsia: #FF007F;
+            --accent-purple: #8A2BE2;
+            --text-primary: #F8F9FA;
+            --text-secondary: #6C757D;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --transition-smooth: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === SCROLLBAR PERSONALIZADA === */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-subtle);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-fuchsia);
+        }
+
+        /* === UTILIDADES === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 48px;
+            font-family: var(--font-mono);
+        }
+
+        /* === HEADER / NAV === */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(24, 24, 36, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-fuchsia);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-fuchsia);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-fuchsia);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-cv-nav {
+            padding: 8px 18px;
+            border: 1.5px solid var(--accent-fuchsia);
+            color: var(--accent-fuchsia);
+            background: transparent;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-cv-nav:hover {
+            background: var(--accent-fuchsia);
+            color: var(--text-primary);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.35);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.stockcake.com/public/4/d/b/4db5494a9aa7930b576f299c1525f0826c1420ef.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(24,24,36,0.7) 0%, rgba(24,24,36,0.95) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 20px;
+            border: 3px solid var(--accent-fuchsia);
+            margin: 0 auto 28px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.25), 0 0 60px rgba(138, 43, 226, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-avatar:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 40px rgba(255, 0, 127, 0.4), 0 0 80px rgba(138, 43, 226, 0.25);
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-badge {
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            background: var(--accent-fuchsia);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .hero-greeting {
+            font-family: var(--font-mono);
+            color: var(--accent-fuchsia);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle .typing-cursor {
+            color: var(--accent-fuchsia);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-statement {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--accent-fuchsia);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 0, 127, 0.45), 0 0 60px rgba(255, 0, 127, 0.15);
+        }
+
+        /* === SOBRE MÍ & ENFOQUE === */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(28, 28, 43, 0.5) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-photo/acdabe501074d170361682be10bb8984e05b1f32.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.06;
+            z-index: 0;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-left h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-left p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .about-left .highlight {
+            color: var(--accent-fuchsia);
+            font-weight: 600;
+        }
+
+        .interests-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interests-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-fuchsia), var(--accent-purple));
+        }
+
+        .interests-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .interests-card .code-comment {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 28px;
+        }
+
+        .interest-group {
+            margin-bottom: 24px;
+        }
+
+        .interest-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .interest-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-purple);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 0, 127, 0.08);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .tag:hover {
+            background: rgba(255, 0, 127, 0.18);
+            border-color: var(--accent-fuchsia);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 0, 127, 0.15);
+        }
+
+        .tag svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
+        .interests-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 24px;
+            opacity: 0.6;
+            border: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .interests-image:hover {
+            opacity: 0.85;
+            border-color: var(--accent-fuchsia);
+        }
+
+        /* === FORMACIÓN ACADÉMICA === */
+        .education {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://thumbs.dreamstime.com/b/dark-cyberpunk-neon-grid-background-pink-blue-glowing-lights-400228307.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.04;
+            z-index: 0;
+        }
+
+        .education .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-fuchsia), var(--accent-purple));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -36px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent-fuchsia);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 28px 32px;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(255, 0, 127, 0.25);
+            transform: translateX(6px);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-fuchsia);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeline-date .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00c864;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .timeline-institution {
+            color: var(--accent-purple);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* === CERTIFICACIONES === */
+        .certifications {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(28, 28, 43, 0.5) 0%, var(--bg-primary) 100%);
+        }
+
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 28px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .cert-card:hover {
+            border-color: rgba(138, 43, 226, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .cert-card:hover::before {
+            background: var(--accent-purple);
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .cert-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--accent-purple);
+        }
+
+        .cert-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .cert-org {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-fuchsia);
+            margin-bottom: 10px;
+        }
+
+        .cert-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* === IDIOMAS === */
+        .languages {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .lang-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-card:hover {
+            border-color: rgba(255, 0, 127, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .lang-flag {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .lang-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .lang-level {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .lang-bar {
+            width: 100%;
+            height: 4px;
+            background: var(--border-subtle);
+            border-radius: 2px;
+            margin-top: 12px;
+            overflow: hidden;
+        }
+
+        .lang-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-fuchsia), var(--accent-purple));
+            border-radius: 2px;
+            transition: width 1s ease;
+        }
+
+        /* === HABILIDADES (TECNOLOGÍAS) === */
+        .skills {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2706910881/display_1500/stock-photo-programming-coding-lines-wallpaper-2706910881.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.04;
+            z-index: 0;
+        }
+
+        .skills .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 36px 28px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .skill-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-6px);
+            border-color: rgba(255, 0, 127, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 0, 127, 0.08);
+        }
+
+        .skill-card:hover::before {
+            background: var(--accent-fuchsia);
+            height: 3px;
+        }
+
+        .skill-icon {
+            width: 52px;
+            height: 52px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 0, 127, 0.08);
+            border: 1px solid rgba(255, 0, 127, 0.15);
+        }
+
+        .skill-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .skill-status {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(0, 200, 100, 0.12);
+            color: #00c864;
+            border: 1px solid rgba(0, 200, 100, 0.2);
+        }
+
+        .status-progress {
+            background: rgba(255, 193, 7, 0.12);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+        }
+
+        .skill-card.special {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(138, 43, 226, 0.12) 100%);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        .skill-card.special::before {
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-fuchsia));
+        }
+
+        .skill-card.special:hover::before {
+            background: linear-gradient(90deg, var(--accent-fuchsia), var(--accent-purple));
+        }
+
+        .skill-card.special .skill-icon {
+            background: rgba(138, 43, 226, 0.12);
+            border-color: rgba(138, 43, 226, 0.25);
+        }
+
+        .status-soon {
+            background: rgba(138, 43, 226, 0.15);
+            color: var(--accent-purple);
+            border: 1px solid rgba(138, 43, 226, 0.25);
+        }
+
+        /* === PROYECTOS DESTACADOS === */
+        .projects {
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(28, 28, 43, 0.5) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://thumbs.dreamstime.com/b/cyberpunk-neon-wavy-abstract-background-futuristic-featuring-glowing-waveforms-purple-electric-blue-hot-pink-inspired-383314411.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .projects .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            border-color: rgba(255, 0, 127, 0.25);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(255, 0, 127, 0.06);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-subtle);
+            opacity: 0.8;
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover .project-image {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 36px 40px;
+            position: relative;
+        }
+
+        .project-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-fuchsia), var(--accent-purple));
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .project-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 0, 127, 0.1);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent-fuchsia);
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 700px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            padding: 6px 14px;
+            background: rgba(138, 43, 226, 0.08);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-purple);
+            transition: var(--transition-smooth);
+        }
+
+        .tech-tag:hover {
+            background: rgba(138, 43, 226, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* === CONTACTO & FOOTER === */
+        .contact {
+            padding: 100px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://thumbs.dreamstime.com/b/neon-lit-neuron-network-over-dark-purple-background-creating-captivating-cyberpunk-atmosphere-illuminated-neuron-network-glows-387668903.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 32px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card:hover {
+            border-color: rgba(255, 0, 127, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: rgba(255, 0, 127, 0.08);
+            border: 1px solid rgba(255, 0, 127, 0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 26px;
+            height: 26px;
+            color: var(--accent-fuchsia);
+        }
+
+        .contact-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .contact-card a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-fuchsia);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2706910881/display_1500/stock-photo-programming-coding-lines-wallpaper-2706910881.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .footer-text {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-text .accent {
+            color: var(--accent-fuchsia);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-primary);
+                border-bottom: 1px solid var(--border-subtle);
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 16px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .project-content {
+                padding: 28px 24px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-avatar {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .interests-card {
+                padding: 24px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-cta {
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- // ============================================================ -->
+    <!-- // HEADER / NAVEGACIÓN                                         -->
+    <!-- // ============================================================ -->
+    <header>
+        <nav>
+            <a href="#" class="logo">JAVIER ANUEL <span>//</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#formacion">Formación</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="curriculum_javier_anuel.pdf" download class="btn-cv-nav">Descargar CV</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menú">☰</button>
+        </nav>
+    </header>
+
+    <!-- // ============================================================ -->
+    <!-- // HERO SECTION                                                -->
+    <!-- // ============================================================ -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg-img"></div>
+        <div class="hero-content">
+            <div class="hero-avatar">
+                <img src="https://media.easy-peasy.ai/ai-image-generator/images/programmer-pixel-art-7bbbaa77-ee91-4339-943b-a5073ad356be/ccb2aaae599c51c2339e58ec126ad9cdd423345d.webp" alt="Javier Anuel - Avatar Pixel Art">
+                <span class="avatar-badge">DEV_01</span>
+            </div>
+            <p class="hero-greeting">&lt;¡Hola, mundo! /&gt;</p>
+            <h1 class="hero-title">Hola, soy <span style="color: var(--accent-fuchsia);">Javier Anuel</span></h1>
+            <p class="hero-subtitle">
+                Estudiante de Ingeniería Industrial <span class="typing-cursor">|</span><br>
+                Futuro Desarrollador
+            </p>
+            <p class="hero-statement">
+                Combino la mentalidad analítica de la ingeniería con el arte del desarrollo web para construir soluciones digitales eficientes, funcionales y visualmente impactantes.
+            </p>
+            <a href="curriculum_javier_anuel.pdf" download class="btn-cta">Descargar Currículum</a>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // SOBRE MÍ & ENFOQUE                                          -->
+    <!-- // ============================================================ -->
+    <section class="about" id="sobre-mi">
+        <div class="about-bg-img"></div>
+        <div class="container">
+            <p class="section-subtitle">// 02. Sobre mí</p>
+            <div class="about-grid">
+                <div class="about-left">
+                    <h2>Mente de ingeniero,<br><span style="color: var(--accent-fuchsia);">alma de desarrollador</span></h2>
+                    <p>
+                        Como estudiante de <span class="highlight">Ingeniería Industrial</span>, he cultivado una mentalidad orientada a la optimización de procesos, el análisis de datos y la resolución sistemática de problemas complejos. Estas habilidades se convierten en mi ventaja competitiva al adentrarme en el mundo del desarrollo web.
+                    </p>
+                    <p>
+                        Mi camino en el desarrollo es <span class="highlight">100% autónomo</span>: cada línea de código que escribo representa horas de dedicación, curiosidad insaciable y la convicción de que la mejor forma de aprender es construyendo cosas reales. No sigo un plan de estudios tradicional — diseño mi propio camino.
+                    </p>
+                    <p>
+                        Creo firmemente que la intersección entre la ingeniería y la programación es donde nacen las soluciones más elegantes. Mi objetivo: transformar ideas complejas en experiencias digitales simples y poderosas.
+                    </p>
+                </div>
+
+                <div class="interests-card">
+                    <img src="https://thumbs.dreamstime.com/b/cyberpunk-gamer-room-neon-lights-futuristic-gaming-setup-advanced-technology-digital-art-virtual-reality-red-futuristic-cyberpunk-365921040.jpg" alt="Gaming Setup Cyberpunk" class="interests-image">
+                    <h3>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-fuchsia);">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        Intereses & Pasatiempos
+                    </h3>
+                    <p class="code-comment">// Lo que me define fuera del código</p>
+
+                    <div class="interest-group">
+                        <span class="interest-label">// Gaming</span>
+                        <div class="tag-container">
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                                Ark: Survival Evolved
+                            </span>
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                                RDR2
+                            </span>
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                                Tekken
+                            </span>
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                                Mortal Kombat
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="interest-group">
+                        <span class="interest-label">// Series & Anime</span>
+                        <div class="tag-container">
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                Dexter
+                            </span>
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                Breaking Bad
+                            </span>
+                            <span class="tag">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                                Hunter x Hunter
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // FORMACIÓN ACADÉMICA                                         -->
+    <!-- // ============================================================ -->
+    <section class="education" id="formacion">
+        <div class="education-bg-img"></div>
+        <div class="container">
+            <p class="section-subtitle">// 03. Formación Académica</p>
+            <h2 class="section-title">Mi <span style="color: var(--accent-fuchsia);">Trayectoria</span></h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <span class="status-dot"></span>
+                            2026 — Presente
+                        </div>
+                        <h3 class="timeline-title">Ingeniería Industrial</h3>
+                        <p class="timeline-institution">Universidad Politécnica Santiago Mariño</p>
+                        <p class="timeline-desc">
+                            Ingreso este año a la carrera de Ingeniería Industrial, donde desarrollo habilidades analíticas, pensamiento lógico y capacidad de resolución de problemas complejos — fundamentos que aplico directamente en mi camino como desarrollador.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // CERTIFICACIONES Y CURSOS                                    -->
+    <!-- // ============================================================ -->
+    <section class="certifications" id="certificaciones">
+        <div class="container">
+            <p class="section-subtitle">// 04. Certificaciones & Cursos</p>
+            <h2 class="section-title">Aprendizaje <span style="color: var(--accent-fuchsia);">Continuo</span></h2>
+
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="cert-title">Computación Básica</h3>
+                    <p class="cert-org">ACADYA</p>
+                    <p class="cert-desc">Fundamentos de informática, manejo de sistemas operativos y herramientas ofimáticas esenciales.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="cert-title">Redes Sociales con IA</h3>
+                    <p class="cert-org">INCES</p>
+                    <p class="cert-desc">Estrategias de contenido digital potenciadas por inteligencia artificial y automatización.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="cert-title">Creación de Contenido con IA</h3>
+                    <p class="cert-org">INCES</p>
+                    <p class="cert-desc">Generación de contenido multimedia asistido por IA: imágenes, texto y diseño visual automatizado.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="cert-title">Reparación de Computadoras</h3>
+                    <p class="cert-org">INCES</p>
+                    <p class="cert-desc">Diagnóstico, mantenimiento y reparación de hardware. Conocimiento profundo de componentes y sistemas.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="cert-title">Creación y Diseño de Páginas Web</h3>
+                    <p class="cert-org">ACADYA</p>
+                    <p class="cert-desc">Diseño web responsive, HTML/CSS fundamentales y principios de UX/UI para interfaces modernas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // IDIOMAS                                                     -->
+    <!-- // ============================================================ -->
+    <section class="languages" id="idiomas">
+        <div class="container">
+            <p class="section-subtitle">// 05. Idiomas</p>
+            <h2 class="section-title">Comunicación <span style="color: var(--accent-fuchsia);">Global</span></h2>
+
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <div class="lang-flag">🇻🇪</div>
+                    <h3 class="lang-name">Español</h3>
+                    <p class="lang-level">Nativo</p>
+                    <div class="lang-bar">
+                        <div class="lang-bar-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div class="lang-card">
+                    <div class="lang-flag">🇺🇸</div>
+                    <h3 class="lang-name">Inglés</h3>
+                    <p class="lang-level">Nivel Básico</p>
+                    <div class="lang-bar">
+                        <div class="lang-bar-fill" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // HABILIDADES (TECNOLOGÍAS)                                   -->
+    <!-- // ============================================================ -->
+    <section class="skills" id="habilidades">
+        <div class="skills-bg-img"></div>
+        <div class="container">
+            <p class="section-subtitle">// 06. Stack Tecnológico</p>
+            <h2 class="section-title">Habilidades <span style="color: var(--accent-fuchsia);">& Tecnologías</span></h2>
+
+            <div class="skills-grid">
+                <!-- HTML5 -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>HTML5</h3>
+                    <p>Estructuración semántica de documentos web con accesibilidad y SEO en mente.</p>
+                    <span class="skill-status status-active">● Activo</span>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>CSS3</h3>
+                    <p>Diseño responsive, animaciones, Flexbox, Grid y estilos modernos sin frameworks.</p>
+                    <span class="skill-status status-active">● Activo</span>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-fuchsia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10"></path>
+                            <path d="M16 18l2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Lógica de programación, manipulación del DOM e interacciones dinámicas en progreso.</p>
+                    <span class="skill-status status-progress">● En progreso</span>
+                </div>
+
+                <!-- Python - Próximamente -->
+                <div class="skill-card special">
+                    <div class="skill-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <h3>Python</h3>
+                    <p>Próximo objetivo de aprendizaje. Automatización, scripting y desarrollo backend.</p>
+                    <span class="skill-status status-soon">● Próximamente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // PROYECTOS DESTACADOS                                        -->
+    <!-- // ============================================================ -->
+    <section class="projects" id="proyectos">
+        <div class="projects-bg-img"></div>
+        <div class="container">
+            <p class="section-subtitle">// 07. Proyectos</p>
+            <h2 class="section-title">Proyectos <span style="color: var(--accent-fuchsia);">Destacados</span></h2>
+
+            <div class="project-card">
+                <img src="https://thumbs.dreamstime.com/b/dark-cyberpunk-neon-grid-background-pink-blue-glowing-lights-400228307.jpg" alt="Sistema SENIAT - Cyberpunk Tech" class="project-image">
+                <div class="project-content">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="project-title">Sistema de Gestión de Retenciones — SENIAT</h3>
+                    </div>
+                    <p class="project-description">
+                        Un programa independiente diseñado para automatizar el cálculo de retenciones impositivas y la generación de comprobantes digitales de acuerdo con las normativas fiscales venezolanas. Optimiza procesos contables que tradicionalmente requieren horas de trabajo manual, reduciendo errores humanos y garantizando el cumplimiento legal.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Lógica Fiscal</span>
+                        <span class="tech-tag">Automatización</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- // ============================================================ -->
+    <!-- // CONTACTO & FOOTER                                           -->
+    <!-- // ============================================================ -->
+    <section class="contact" id="contacto">
+        <div class="contact-bg-img"></div>
+        <div class="container">
+            <p class="section-subtitle">// 08. Contacto</p>
+            <h2 class="section-title">Conectemos <span style="color: var(--accent-fuchsia);">//</span></h2>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Correo Electrónico</h3>
+                    <a href="mailto:javieranuel59@gmail.com">javieranuel59@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <h3>Teléfono</h3>
+                    <a href="tel:+584248703052">0424-870-3052</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bg-img"></div>
+        <p class="footer-text">
+            <span class="accent">//</span> Hecho con código y pasión por <span class="accent">Javier Anuel</span> — 2026
+        </p>
+    </footer>
+
+    <!-- // ============================================================ -->
+    <!-- // SCRIPTS                                                     -->
+    <!-- // ============================================================ -->
+    <script>
+        // Menú móvil
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+    </script>
+
+</body>
+</html>
